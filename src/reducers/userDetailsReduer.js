@@ -6,6 +6,7 @@ const userDetailReducer = (state = null, action) => {
             break;
         case 'REMOVE_ISER_ID':
             userDetails = null
+            break;
         default:
             break;
     }

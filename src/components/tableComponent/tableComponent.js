@@ -51,6 +51,22 @@ function descendingComparator(a, b, orderBy) {
       return 1;
     }
   }
+  else if (orderBy === "manufracturer") {
+    if (b["category"] < a["category"]) {
+      return -1;
+    }
+    if (b["category"] > a["category"]) {
+      return 1;
+    }
+  }
+  else if (orderBy === "category") {
+    if (b["subCategory"] < a["subCategory"]) {
+      return -1;
+    }
+    if (b["subCategory"] > a["subCategory"]) {
+      return 1;
+    }
+  }
   else {
     let bArray = orderBy === "price" || orderBy === "inventory" ? Number(b[orderBy].replace(/[^0-9.-]+/g, "")) : b[orderBy].toUpperCase()
     let aArray = orderBy === "price" || orderBy === "inventory" ? Number(a[orderBy].replace(/[^0-9.-]+/g, "")) : a[orderBy].toUpperCase()
@@ -183,9 +199,6 @@ const EnhancedTableToolbar = (props) => {
     // setAnchorEl(null)
     props.filterCategory(e)
   }
-  const closeFilterList = () => {
-    open = false;
-  }
   let deleteAction = () => {
     let fakeObject = {
       target: { checked: false }
@@ -207,7 +220,7 @@ const EnhancedTableToolbar = (props) => {
     },
   };
   let columns = props.columns === undefined ? [] : props.columns.slice(1, props.columns.length - 1)
-  const [selectedColumns, setSelectedColumns] = React.useState(["Name", "Category", "In-Stock", "Price per Unit", "Inventory Value", "Added On", "Last Edited", "Action"])
+  const [selectedColumns, setSelectedColumns] = React.useState(["Name", "Category", "Manufracturer", "Color", "In-Stock", "Price per Unit", "Inventory Value", "Added On", "Last Edited", "Action"])
   const handleChange = (event) => {
     setSelectedColumns(event.target.value);
     props.showOrHideColumns(event.target.value)
@@ -337,12 +350,13 @@ export default function EnhancedTable(props) {
     setOrderBy(property);
   };
   useEffect(() => {
+    setDense(true)    //to avoid unwanted warnings
     let list = []
     if (props.tableHeader !== undefined) {
       props.tableHeader.map(data => list.push(data.label))
     }
     setColumns(list)
-  }, [])
+  }, [props.tableHeader])
   if (!disableTimeoutFunc) {
     setTimeout(() => {
       setRows(props.tableData)
@@ -350,10 +364,11 @@ export default function EnhancedTable(props) {
   }
   const showOrHideColumns = (receivedColumns) => {
     let list = []
-    tableHeadCells.map(e => {
+    props.tableHeader.map(e => {
       if (receivedColumns.indexOf(e.label) >= 0) {
         list.push(e)
       }
+      return 0
     })
     setTableHeadCells(list)
     setColumns(receivedColumns)
@@ -395,10 +410,6 @@ export default function EnhancedTable(props) {
     setPage(0);
   };
 
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
-  };
-
   const searchData = (value) => {
     if (value === "") {
       setDisableTimeoutFunc(false)
@@ -410,6 +421,7 @@ export default function EnhancedTable(props) {
         if (data.name.toUpperCase().includes(value.toUpperCase()) || data.description.toUpperCase().includes(value.toUpperCase())) {
           tempRow.push(data);
         }
+        return 0
       })
       setDisableTimeoutFunc(true)
       setRows(tempRow)
@@ -482,7 +494,9 @@ export default function EnhancedTable(props) {
                       <TableCell component="th" id={labelId} scope="row" padding="none" className={columns.indexOf("Name") < 0 ? "hide-column" : ""}>
                         {row.name}
                       </TableCell>
-                      <TableCell align="left" className={columns.indexOf("Category") < 0 ? "hide-column" : ""}>{row.category}</TableCell>
+                      <TableCell align="left" className={columns.indexOf("Category") < 0 ? "hide-column" : ""}>{row.subCategory}</TableCell>
+                      <TableCell align="left" className={columns.indexOf("Manufracturer") < 0 ? "hide-column" : ""}>{row.category}</TableCell>
+                      <TableCell align="left" className={columns.indexOf("Color") < 0 ? "hide-column" : ""}>{row.color}</TableCell>
                       <TableCell align="right" className={columns.indexOf("In-Stock") < 0 ? "hide-column" : ""}>{row.stock}</TableCell>
                       <TableCell align="right" className={columns.indexOf("Price per Unit") < 0 ? "hide-column" : ""}>{row.price}</TableCell>
                       <TableCell align="right" className={columns.indexOf("Inventory Value") < 0 ? "hide-column" : ""}>{row.inventory}</TableCell>

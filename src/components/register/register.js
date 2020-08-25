@@ -117,7 +117,7 @@ class Register extends Component {
                             <br />
                             <input className="form-input" type="email" placeholder="Email*" onChange={this.setEmailValue} required />
                             <br />
-                            <input className="form-input" type="password" placeholder="Password*" id="pwd" name="password" onChange={this.setPasswordValue} required />
+                            <input className="form-input" type="password" placeholder="Password*" name="password" onChange={this.setPasswordValue} required />
                             <br />
                             <button className="button log-in" type="submit" onClick={this.handleSubmit}> Sign up </button>
                         </div>

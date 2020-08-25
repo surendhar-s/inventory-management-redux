@@ -25,6 +25,8 @@ class ProductDetailTile extends Component {
       productDescription: "",
       productAddedOn: "",
       productUpdatedOn: "",
+      productSubCategory: "",
+      productColor: "",
       isEditable: false,
       categoryName: "",
       errors: {
@@ -43,7 +45,9 @@ class ProductDetailTile extends Component {
       initialProductAddedOn: this.props.location.state.productData.productAddedOn,
       initialProductUpdatedOn: this.props.location.state.productData.productUpdatedOn,
       initialProductDescription: this.props.location.state.productData.productDescription,
-      initialProductCategoryName: this.props.location.state.productData.productCategoryName
+      initialProductCategoryName: this.props.location.state.productData.productCategoryName,
+      initialProductSubCategory: this.props.location.state.productData.productSubCategory,
+      initialProductColor: this.props.location.state.productData.productColor
     }
   }
   setErrorFiled = (fieldName, filedValue) => {
@@ -77,6 +81,8 @@ class ProductDetailTile extends Component {
       productAddedOn: this.props.location.state.productData.productAddedOn,
       productUpdatedOn: this.props.location.state.productData.productUpdatedOn,
       productCategoryName: this.props.location.state.productData.productCategoryName,
+      productSubCategory: this.props.location.state.productData.productSubCategory,
+      productColor: this.props.location.state.productData.productColor,
     })
   }
 
@@ -110,6 +116,8 @@ class ProductDetailTile extends Component {
       productDescription: this.state.productDescription,
       productAddedOn: this.state.productAddedOn,
       productUpdatedOn: moment(),
+      productSubCategory: this.state.productSubCategory,
+      productColor: this.state.productColor,
       productUserId: localStorage.getItem("userId")
     })
     if (data.status === 200) {
@@ -168,7 +176,7 @@ class ProductDetailTile extends Component {
         <Header />
         <div className="main-container">
           {this.state.isEditable ? <div className="product-detail-container flex-container">
-            <h2>Edit Product Details</h2>
+            <h2 className="h2">Edit Product Details</h2>
             <hr />
             <div>
               <div className="flex-area">
@@ -198,7 +206,7 @@ class ProductDetailTile extends Component {
               </div>
             </div>
           </div> : <div>
-              <h2>Product Detail</h2>
+              <h2 className="h2">Product Detail</h2>
               <hr />
               <table className="product-detail-container">
                 <tbody>
@@ -210,9 +218,21 @@ class ProductDetailTile extends Component {
                   </tr>
                   <tr>
                     <td>
-                      <h3>Category:</h3>
+                      <h3>Manufracturer:</h3>
                     </td>
                     <td>{this.state.productCategoryName}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Category:</h3>
+                    </td>
+                    <td>{this.state.productSubCategory}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Color:</h3>
+                    </td>
+                    <td>{this.state.productColor}</td>
                   </tr>
                   <tr>
                     <td>

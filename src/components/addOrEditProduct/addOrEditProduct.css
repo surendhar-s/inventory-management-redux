@@ -1,8 +1,6 @@
 .select-option {
-  display: block;
-  margin: 0px auto 20px auto;
+  margin-bottom: 10px;
   height: 30px;
-  width: 330px;
 }
 
 .add-product-container {
@@ -22,8 +20,8 @@
 }
 
 .error {
-  color: #db2269;
-  font-size: 0.625em;
+  color: #ff0000;
+  font-size: 0.8rem;
   /* display: relative; */
   margin-left: 45px;
 }
@@ -35,8 +33,19 @@
   padding: 15px;
 }
 
+.info-container{
+  color: #ff0000;
+  font-size: 0.625rem;
+  margin-left: 45px;
+}
+
 .h2 {
   color: #23b3d4;
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 530px) {

@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
-import LoadingOverlay from 'react-loading-overlay'
-import './listAllProducts.css'
 import moment from 'moment';
-import { TablePagination } from 'react-pagination-table'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import removeProductFromList from '../../actions/removeProductFromList';
 import EnhancedTable from '../tableComponent/tableComponent';
-import VisibilityIcon from '@material-ui/icons/Visibility';
+import './listAllProducts.css';
 
 class ListAllProducts extends Component {
   constructor(props) {
@@ -99,23 +97,23 @@ class ListAllProducts extends Component {
       let tempList = this.state.productsList
       let sortOrder = this.state.sortOrder === "ASC" ? true : false
       if (this.state.sortBy === "byName") {
-        let tempList = this.state.productsList
+        // let tempList = this.state.productsList
         tempList.sort((a, b) => sortOrder ? a.productName.localeCompare(b.productName) : b.productName.localeCompare(a.productName))
       }
       else if (this.state.sortBy === "byPrice") {
-        let tempList = this.state.productsList
+        // let tempList = this.state.productsList
         tempList.sort((a, b) => sortOrder ? parseFloat(a.productPrice) - parseFloat(b.productPrice) : parseFloat(b.productPrice) - parseFloat(a.productPrice))
       }
       else if (this.state.sortBy === "byAvailability") {
-        let tempList = this.state.productsList
+        // let tempList = this.state.productsList
         tempList.sort((a, b) => sortOrder ? parseInt(a.productStock) - parseInt(b.productStock) : parseInt(b.productStock) - parseInt(a.productStock))
       }
       else if (this.state.sortBy === "byAddedOn") {
-        let tempList = this.state.productsList
+        // let tempList = this.state.productsList
         tempList.sort((a, b) => sortOrder ? moment(a.productAddedOn) - moment(b.productAddedOn) : moment(b.productAddedOn) - moment(a.productAddedOn))
       }
       else if (this.state.sortBy === "byInventoryValue") {
-        let tempList = this.state.productsList
+        // let tempList = this.state.productsList
         tempList.sort((a, b) => sortOrder ? (parseFloat(a.productPrice) * parseFloat(a.productStock)) - (parseFloat(b.productPrice) * parseFloat(b.productStock)) : (parseFloat(b.productPrice) * parseFloat(b.productStock)) - (parseFloat(a.productPrice) * parseFloat(a.productStock)))
       }
       this.setState({
@@ -171,6 +169,8 @@ class ListAllProducts extends Component {
     let tableHeader = [
       { id: 'name', numeric: false, disablePadding: true, label: 'Name' },
       { id: 'category', numeric: false, disablePadding: true, label: 'Category' },
+      { id: 'manufracturer', numeric: false, disablePadding: true, label: 'Manufracturer' },
+      { id: 'color', numeric: false, disablePadding: true, label: 'Color' },
       { id: 'stock', numeric: true, disablePadding: false, label: 'In-Stock' },
       { id: 'price', numeric: true, disablePadding: false, label: 'Price per Unit' },
       { id: 'inventory', numeric: true, disablePadding: false, label: 'Inventory Value' },
@@ -183,6 +183,8 @@ class ListAllProducts extends Component {
       let id = data.id
       let name = data.productName
       let category = data.productCategoryName
+      let subCategory = data.productSubCategory
+      let color = data.productColor
       let stock = parseInt(data.productStock)
       let description = data.productDescription
       let addedOn = data.productAddedon
@@ -204,6 +206,8 @@ class ListAllProducts extends Component {
         id,
         name,
         category,
+        subCategory,
+        color,
         stock,
         price,
         inventory,
@@ -217,7 +221,7 @@ class ListAllProducts extends Component {
     return (
       <div className="data-container">
         <h2 className="h2">Products</h2>
-        <hr className="hr-align"/>
+        <hr className="hr-align" />
         <EnhancedTable
           tableData={tableData}
           tableHeader={tableHeader}

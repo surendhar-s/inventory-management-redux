@@ -1,3 +1,7 @@
 .data-container {
     padding: 0px 5px;
 }
+
+.dashboard-buttons{
+    margin: 15px 10px 0px !important;
+}

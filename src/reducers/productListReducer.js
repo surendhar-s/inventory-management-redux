@@ -20,6 +20,8 @@ const productListReducer = (state = null, action) => {
                 productUpdatedOn: updatedData.productUpdatedOn,
                 productUserId: updatedData.productUserId,
                 id: updatedData.id,
+                productSubCategory: updatedData.productSubCategory,
+                productColor: updatedData.productColor,
                 productCategoryName: updatedData.productCategoryName
             }
             let indices = state.findIndex(product => product.id === updatedData.id)

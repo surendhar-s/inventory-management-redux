@@ -6,6 +6,7 @@ import LoadingOverlay from 'react-loading-overlay';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import addProductToList from '../../actions/addProductToList';
+import { Button } from '@material-ui/core';
 
 class AddOrEditProduct extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class AddOrEditProduct extends Component {
       imagePath: "",
       description: "",
       category: "",
+      subCategory: "",
+      color: "",
       categoryList: [],
       newCategory: "",
       addNewCategoryEnabled: false,
@@ -27,10 +30,14 @@ class AddOrEditProduct extends Component {
         quantity: ' ',
         price: ' ',
         description: ' ',
-        newCategory: ' '
+        newCategory: ' ',
+        subCategory: ' ',
+        color: ' '
       },
     }
+    this.subCategory = ["Shirts", "Polo's", "Tees", "Tracks", "Pants", "Jeans", "Sports wear"]
   }
+  subCategory = []
   setErrorFiled = (fieldName, filedValue) => {
     let errors = this.state.errors
     switch (fieldName) {
@@ -47,12 +54,21 @@ class AddOrEditProduct extends Component {
         errors.description = filedValue.length <= 9 ? 'Description should have minimum of 10 character' : ''
         break;
       case 'newCategory':
-        errors.newCategory = filedValue === "" ? 'Please specify category name or select from available one' : ''
+        errors.newCategory = filedValue === "" ? 'Please specify manufracturer name or select from available one' : ''
+        break;
+      case 'subCategory':
+        errors.subCategory = filedValue === "" ? 'Please specify category name or select from available one' : ''
+        break;
+      case 'color':
+        errors.color = filedValue === "" ? 'Please type color' : ''
         break;
       default:
         break;
     }
     this.setState({ errors, [fieldName]: filedValue });
+  }
+  componentDidMount = async () => {
+    await this.fetchCategory()
   }
   setNameValue = (e) => {
     this.setErrorFiled(e.target.name, e.target.value)
@@ -74,12 +90,21 @@ class AddOrEditProduct extends Component {
     this.setErrorFiled(e.target.name, e.target.value)
     this.setImage({ imagePath: e.target.value })
   }
-  componentDidMount = async () => {
-    await this.fetchCategory()
-  }
   setCategory = (e) => {
     this.setState({
       category: e.target.value
+    })
+  }
+  setSubCategory = (e) => {
+    this.setErrorFiled(e.target.name, e.target.value)
+    this.setState({
+      subCategory: e.target.value
+    })
+  }
+  setColor = (e) => {
+    this.setErrorFiled(e.target.name, e.target.value)
+    this.setState({
+      color: e.target.value
     })
   }
   fetchCategory = async () => {
@@ -101,6 +126,8 @@ class AddOrEditProduct extends Component {
       productDescription: this.state.description,
       productAddedOn: moment(),
       productUpdatedOn: null,
+      productSubCategory: this.state.subCategory === "" ? this.subCategory[0] : this.state.subCategory,
+      productColor: this.state.color,
       productUserId: localStorage.getItem("userId")
     })
     if (data.status === 201) {
@@ -135,7 +162,9 @@ class AddOrEditProduct extends Component {
     if (this.state.errors.name === "" &&
       this.state.errors.price === "" &&
       this.state.errors.description === "" &&
-      this.state.errors.quantity === "") {
+      this.state.errors.quantity === "" &&
+      // this.state.errors.subCategory === "" &&
+      this.state.errors.color === "") {
       return false
     }
     else {
@@ -182,53 +211,66 @@ class AddOrEditProduct extends Component {
         <h2 className="h2">Add Products</h2>
         <hr className="hr-align" />
         <div className="align-container">
-        <div className="add-product-container">
-          <div className="con">
-            <br />
-            <div>
-              <LoadingOverlay
-                active={this.state.isDataLoading}
-                spinner
-                text="Please wait!!!" >
-                <input className="form-input" type="text" placeholder="Name" name="name" onChange={this.setNameValue} required />
-                <br />
-                {errors.name.length > 0 && <div className="error-container"><span className='error'>{errors.name}</span></div>}
-                <input className="form-input" type="number" placeholder="Quantity" name="quantity" onChange={this.setQuantity} required />
-                <br />
-                {errors.quantity.length > 0 && <div className="error-container"><span className='error'>{errors.quantity}</span></div>}
-                <input className="form-input" type="number" placeholder="Price per unit" name="price" onChange={this.setPricePerUnit} required />
-                <br />
-                {errors.price.length > 0 && <div className="error-container"><span className='error'>{errors.price}</span></div>}
-                <select className="select-option" onChange={this.setCategory}>
-                  <option disabled>---Select category---</option>
+          <div className="add-product-container">
+            <div className="con">
+              <br />
+              <div>
+                <LoadingOverlay
+                  active={this.state.isDataLoading}
+                  spinner
+                  text="Please wait!!!" >
+                  <input className="form-input" type="text" placeholder="Name" name="name" onChange={this.setNameValue} required />
+                  <br />
+                  {errors.name.length > 0 && <div className="error-container"><span className='error'>{errors.name}</span></div>}
+                  <input className="form-input" type="number" placeholder="Quantity" name="quantity" onChange={this.setQuantity} required />
+                  <br />
+                  {errors.quantity.length > 0 && <div className="error-container"><span className='error'>{errors.quantity}</span></div>}
+                  <input className="form-input" type="number" placeholder="Price per unit" name="price" onChange={this.setPricePerUnit} required />
+                  <br />
+                  {errors.price.length > 0 && <div className="error-container"><span className='error'>{errors.price}</span></div>}
+                  <input className="form-input" type="text" placeholder="Color" name="color" onChange={this.setColor} required />
+                  <br />
+                  {errors.color.length > 0 && <div className="error-container"><span className='error'>{errors.color}</span></div>}
+                  <div className="dropdown-container">
+                    <select className="select-option" onChange={this.setSubCategory} name="subCategory">
+                      <option disabled>---Select category---</option>
+                      {
+                        this.subCategory.map(data => {
+                          return <option key={data} value={data}>{data}</option>
+                        })
+                      }
+                    </select>
+                    <select className="select-option" onChange={this.setCategory}>
+                      <option disabled>---Select Manufracturer---</option>
+                      {
+                        this.state.categoryList.map((category) => {
+                          return <option key={category.id} value={category.id}>{category.categoryName}</option>
+                        })
+                      }
+                    </select>
+                  </div>
+                  <Button variant="outlined" color="secondary" style={{ display: "block", margin: "auto" }} onClick={this.toggleAddingCategory}>Click to add new category</Button>
                   {
-                    this.state.categoryList.map((category) => {
-                      return <option key={category.id} value={category.id}>{category.categoryName}</option>
-                    })
+                    this.state.addNewCategoryEnabled ? <div>
+                      <input className="form-input" type="text" name="newCategory" placeholder="New Category" onChange={this.setNewCategoryValue} />
+                      {errors.newCategory.length > 0 && <div className="error-container"><span className='error'>{errors.newCategory}</span></div>}
+                      <button className="button" onClick={this.addNewCategory} style={{ width: "unset", background: "rgb(181 147 147)", margin: "0px auto 20px" }}>Add Category</button>
+                    </div> : null
                   }
-                </select>
-                <br />
-                <button style={{ display: "block", margin: "auto" }} onClick={this.toggleAddingCategory}>Click to add new category</button>
-                {
-                  this.state.addNewCategoryEnabled ? <div>
-                    <input className="form-input" type="text" name="newCategory" placeholder="New Category" onChange={this.setNewCategoryValue} />
-                    {errors.newCategory.length > 0 && <div className="error-container"><span className='error'>{errors.newCategory}</span></div>}
-                    <button className="button" onClick={this.addNewCategory} style={{ width: "unset", background: "rgb(181 147 147)", margin: "0px auto 20px" }}>Add Category</button>
-                  </div> : null
-                }
-                <input className="form-input" type="text" placeholder="Description" name="description" onChange={this.setDescription} />
-                {errors.description.length > 0 && <div className="error-container"><span className='error'>{errors.description}</span></div>}
-                <br />
-                <div className="button-holder">
-                  <button className="operational-button" type="submit" onClick={this.handleSubmit} disabled={isSubmissionDisabled}>Add</button>
-                  <button className="operational-button" type="submit" onClick={this.cancelAddingProduct}>Cancel</button>
-                </div>
-              </LoadingOverlay>
+                  <input className="form-input" type="text" placeholder="Description" name="description" onChange={this.setDescription} />
+                  {errors.description.length > 0 && <div className="error-container"><span className='error'>{errors.description}</span></div>}
+                  <br />
+                  <span className="info-container">*All fields are mandatory!!!</span>
+                  <div className="button-holder">
+                    <button className="operational-button" type="submit" onClick={this.handleSubmit} disabled={isSubmissionDisabled}>Add</button>
+                    <button className="operational-button" type="submit" onClick={this.cancelAddingProduct}>Cancel</button>
+                  </div>
+                </LoadingOverlay>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-        
+
         {/* <div>
           <label>Product Name:</label>
           <input className="" type="text" placeholder="Name" name="name" onChange={this.setNameValue} required />

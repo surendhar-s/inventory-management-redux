@@ -15,216 +15,198 @@
   ],
   "products": [
     {
+      "productCategory": "3",
+      "productName": "Sample Product",
+      "productStock": "57",
+      "productPrice": "2425",
+      "productDescription": "kjaha gfhaf",
+      "productAddedOn": "2020-08-08T13:26:58.498Z",
+      "productUpdatedOn": "2020-08-11T16:10:07.045Z",
+      "productUserId": "1",
+      "productSubCategory": "Shirts",
+      "productColor": "Black",
+      "id": 2
+    },
+    {
+      "productCategory": "2",
+      "productName": "Sample Product 1",
+      "productStock": "50",
+      "productPrice": "2855",
+      "productDescription": "aakjd'aj ajajg",
+      "productAddedOn": "2020-08-09T03:52:16.194Z",
+      "productUpdatedOn": "2020-08-09T04:01:37.225Z",
+      "productUserId": "1",
+      "productSubCategory": "Tees",
+      "productColor": "Blue",
+      "id": 4
+    },
+    {
       "productCategory": "1",
-      "productName": "iPhone",
+      "productName": "Sample Product 2",
       "productStock": "59",
       "productPrice": "90999",
       "productDescription": "Apple product",
       "productAddedOn": "2020-08-09T04:54:46.245Z",
       "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Tracks",
+      "productColor": "Grey",
       "id": 5
     },
     {
       "productCategory": "4",
-      "productName": "Test Product",
+      "productName": "Sample product 3",
+      "productStock": "3",
+      "productPrice": "5215",
+      "productDescription": "Hello world",
+      "productAddedOn": "2020-08-10T06:34:02.951Z",
+      "productUpdatedOn": "2020-08-10T06:34:46.499Z",
+      "productUserId": "1",
+      "productSubCategory": "Pants",
+      "productColor": "Green",
+      "id": 6
+    },
+    {
+      "productCategory": "4",
+      "productName": "Sample Product 4",
       "productStock": "4",
       "productPrice": "222",
       "productDescription": "Hello Sample",
       "productAddedOn": "2020-08-11T16:17:47.902Z",
       "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Jeans",
+      "productColor": "Gray",
       "id": 7
     },
     {
       "productCategory": "1",
-      "productName": "Test Product 2",
+      "productName": "Sample Product 5",
       "productStock": "23",
       "productPrice": "213",
       "productDescription": "Hello World Sample",
       "productAddedOn": "2020-08-11T16:32:09.303Z",
       "productUpdatedOn": "2020-08-11T16:36:29.840Z",
       "productUserId": "1",
+      "productSubCategory": "Polo's",
+      "productColor": "Red",
       "id": 8
     },
     {
       "productCategory": "3",
-      "productName": "Test Product 3",
+      "productName": "Sample Product 6",
       "productStock": "10",
       "productPrice": "654",
       "productDescription": "Hello sample 3",
       "productAddedOn": "2020-08-11T16:36:06.764Z",
       "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Shirts",
+      "productColor": "Green",
       "id": 9
     },
     {
       "productCategory": "2",
-      "productName": "Test Product 4",
+      "productName": "Sample Product 7",
       "productStock": "5",
       "productPrice": "21",
       "productDescription": "Hello Sample product",
       "productAddedOn": "2020-08-11T16:48:38.026Z",
       "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Polo's",
+      "productColor": "Brown",
       "id": 10
     },
     {
       "productCategory": "5",
-      "productName": "Test Product 5",
+      "productName": "Sample Product 8",
       "productStock": "50",
       "productPrice": "23",
       "productDescription": "Hello sample product",
       "productAddedOn": "2020-08-11T16:49:37.276Z",
       "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Pants",
+      "productColor": "Yellow",
       "id": 11
     },
     {
       "productCategory": 1,
-      "productName": "Test Product 6",
+      "productName": "Sample Product 9",
       "productStock": "14",
       "productPrice": "345",
       "productDescription": "Hello Sample product",
       "productAddedOn": "2020-08-11T17:00:18.174Z",
       "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Jeans",
+      "productColor": "Black",
       "id": 12
     },
     {
-      "productCategory": "3",
-      "productName": "Hello World",
-      "productStock": "52",
-      "productPrice": "2425",
-      "productDescription": "kjaha 4654",
-      "productAddedOn": "2020-08-08T13:26:58.498Z",
-      "productUpdatedOn": "2020-08-11T16:10:07.045Z",
+      "productCategory": "4",
+      "productName": "Sample Product 10",
+      "productStock": "66",
+      "productPrice": "2224",
+      "productDescription": "afydsgfodgfupdfpg",
+      "productAddedOn": "2020-08-16T08:01:38.484Z",
+      "productUpdatedOn": null,
       "productUserId": "1",
+      "productSubCategory": "Tracks",
+      "productColor": "Black",
       "id": 13
     },
     {
-      "productCategory": 4,
-      "productName": "Data to be store in phone",
-      "productStock": "23",
-      "productPrice": "648",
-      "productDescription": "Gdjsjhsvsbshdhbd ",
-      "productAddedOn": "2020-08-24T11:16:44.984Z",
+      "productCategory": 1,
+      "productName": "Sample Product 11",
+      "productStock": "6",
+      "productPrice": "5635",
+      "productDescription": "alhglvahgqrg",
+      "productAddedOn": "2020-08-16T08:11:53.343Z",
       "productUpdatedOn": null,
+      "productUserId": "1",
+      "productSubCategory": "Sports wear",
+      "productColor": "Black",
+      "id": 14
+    },
+    {
+      "productCategory": "3",
+      "productName": "Sample product 12",
+      "productStock": "10",
+      "productPrice": "2132",
+      "productDescription": "sdfsdsfasdsa",
+      "productAddedOn": "2020-08-25T12:46:29.758Z",
+      "productUpdatedOn": null,
+      "productSubCategory": "Polo's",
+      "productColor": "Black",
       "productUserId": "1",
       "id": 15
-    },
-    {
-      "productCategory": 4,
-      "productName": "Hxfytuzgjxgix",
-      "productStock": " 68",
-      "productPrice": "655",
-      "productDescription": "Vjfgi",
-      "productAddedOn": "2020-08-24T11:21:23.882Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 16
-    },
-    {
-      "productCategory": 4,
-      "productName": "Hxfytuzgjxgix",
-      "productStock": " 68",
-      "productPrice": "655",
-      "productDescription": "Vjfgi",
-      "productAddedOn": "2020-08-24T11:22:04.909Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 17
-    },
-    {
-      "productCategory": 4,
-      "productName": "Hxfytuzgjxgix",
-      "productStock": " 68",
-      "productPrice": "655",
-      "productDescription": "Vjfgi",
-      "productAddedOn": "2020-08-24T11:22:21.860Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 18
-    },
-    {
-      "productCategory": 4,
-      "productName": "Hxfytuzgjxgix",
-      "productStock": " 68",
-      "productPrice": "655",
-      "productDescription": "Vjfgi",
-      "productAddedOn": "2020-08-24T11:22:32.112Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 19
-    },
-    {
-      "productCategory": 4,
-      "productName": "Hxfytuzgjxgix",
-      "productStock": " 68",
-      "productPrice": "655",
-      "productDescription": "Vjfgi",
-      "productAddedOn": "2020-08-24T11:24:42.172Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 21
-    },
-    {
-      "productCategory": 4,
-      "productName": "Hxfytuzgjxgix",
-      "productStock": " 68",
-      "productPrice": "655",
-      "productDescription": "Vjfgi",
-      "productAddedOn": "2020-08-24T11:24:49.210Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 22
-    },
-    {
-      "productCategory": 4,
-      "productName": "Gzgjzj",
-      "productStock": "787547",
-      "productPrice": "655",
-      "productDescription": "Gzjsjfz",
-      "productAddedOn": "2020-08-24T14:53:37.246Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 28
-    },
-    {
-      "productCategory": 4,
-      "productName": "Oooooooo",
-      "productStock": "787547",
-      "productPrice": "655",
-      "productDescription": "Gzjsjfz",
-      "productAddedOn": "2020-08-24T14:54:23.731Z",
-      "productUpdatedOn": null,
-      "productUserId": "1",
-      "id": 29
     }
   ],
   "category": [
     {
       "id": 1,
-      "categoryName": "Charger"
+      "categoryName": "Levis"
     },
     {
       "id": 2,
-      "categoryName": "Mobile"
+      "categoryName": "Lee"
     },
     {
       "id": 3,
-      "categoryName": "Earphones"
+      "categoryName": "Basics"
     },
     {
       "id": 4,
-      "categoryName": "Mobile cases"
+      "categoryName": "Wrangler"
     },
     {
-      "categoryName": "Other",
+      "categoryName": "Team Sprit",
       "id": 5
     },
     {
-      "categoryName": "Something",
+      "categoryName": "Indigo Nation",
       "id": 6
     }
   ]

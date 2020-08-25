@@ -38,6 +38,7 @@ class Home extends Component {
           let catName = categoryName[index];
           singleProduct["productCategoryName"] = catName
           list.push(singleProduct)
+          return 0
         })
       }
       this.props.setProductList({ list: list })
