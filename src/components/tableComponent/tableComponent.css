@@ -1,0 +1,12 @@
+.custom-list {
+    padding: 5px;
+}
+
+.custom-list:hover {
+    background: #d1a6a6;
+    cursor: pointer;
+}
+
+.hide-column {
+    display: none !important
+}

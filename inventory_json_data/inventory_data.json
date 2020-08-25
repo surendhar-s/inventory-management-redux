@@ -1,0 +1,231 @@
+{
+  "userDb": [
+    {
+      "name": "admin",
+      "password": "$2a$12$XAEsuvgHvk4n9ldyv4uD.Ot8naFhyqu5zZ5hBGf7yB3Ok93UmmnUW",
+      "email": "abc@xyz.com",
+      "id": 1
+    },
+    {
+      "name": "Person 2",
+      "password": "$2a$12$7awmgwMvySBviyeMFClYpOa0X4KWA7h4KdSfONoP9ZgV9K4DN4rJq",
+      "email": "new@xyz.com",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "productCategory": "1",
+      "productName": "iPhone",
+      "productStock": "59",
+      "productPrice": "90999",
+      "productDescription": "Apple product",
+      "productAddedOn": "2020-08-09T04:54:46.245Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 5
+    },
+    {
+      "productCategory": "4",
+      "productName": "Test Product",
+      "productStock": "4",
+      "productPrice": "222",
+      "productDescription": "Hello Sample",
+      "productAddedOn": "2020-08-11T16:17:47.902Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 7
+    },
+    {
+      "productCategory": "1",
+      "productName": "Test Product 2",
+      "productStock": "23",
+      "productPrice": "213",
+      "productDescription": "Hello World Sample",
+      "productAddedOn": "2020-08-11T16:32:09.303Z",
+      "productUpdatedOn": "2020-08-11T16:36:29.840Z",
+      "productUserId": "1",
+      "id": 8
+    },
+    {
+      "productCategory": "3",
+      "productName": "Test Product 3",
+      "productStock": "10",
+      "productPrice": "654",
+      "productDescription": "Hello sample 3",
+      "productAddedOn": "2020-08-11T16:36:06.764Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 9
+    },
+    {
+      "productCategory": "2",
+      "productName": "Test Product 4",
+      "productStock": "5",
+      "productPrice": "21",
+      "productDescription": "Hello Sample product",
+      "productAddedOn": "2020-08-11T16:48:38.026Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 10
+    },
+    {
+      "productCategory": "5",
+      "productName": "Test Product 5",
+      "productStock": "50",
+      "productPrice": "23",
+      "productDescription": "Hello sample product",
+      "productAddedOn": "2020-08-11T16:49:37.276Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 11
+    },
+    {
+      "productCategory": 1,
+      "productName": "Test Product 6",
+      "productStock": "14",
+      "productPrice": "345",
+      "productDescription": "Hello Sample product",
+      "productAddedOn": "2020-08-11T17:00:18.174Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 12
+    },
+    {
+      "productCategory": "3",
+      "productName": "Hello World",
+      "productStock": "52",
+      "productPrice": "2425",
+      "productDescription": "kjaha 4654",
+      "productAddedOn": "2020-08-08T13:26:58.498Z",
+      "productUpdatedOn": "2020-08-11T16:10:07.045Z",
+      "productUserId": "1",
+      "id": 13
+    },
+    {
+      "productCategory": 4,
+      "productName": "Data to be store in phone",
+      "productStock": "23",
+      "productPrice": "648",
+      "productDescription": "Gdjsjhsvsbshdhbd ",
+      "productAddedOn": "2020-08-24T11:16:44.984Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 15
+    },
+    {
+      "productCategory": 4,
+      "productName": "Hxfytuzgjxgix",
+      "productStock": " 68",
+      "productPrice": "655",
+      "productDescription": "Vjfgi",
+      "productAddedOn": "2020-08-24T11:21:23.882Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 16
+    },
+    {
+      "productCategory": 4,
+      "productName": "Hxfytuzgjxgix",
+      "productStock": " 68",
+      "productPrice": "655",
+      "productDescription": "Vjfgi",
+      "productAddedOn": "2020-08-24T11:22:04.909Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 17
+    },
+    {
+      "productCategory": 4,
+      "productName": "Hxfytuzgjxgix",
+      "productStock": " 68",
+      "productPrice": "655",
+      "productDescription": "Vjfgi",
+      "productAddedOn": "2020-08-24T11:22:21.860Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 18
+    },
+    {
+      "productCategory": 4,
+      "productName": "Hxfytuzgjxgix",
+      "productStock": " 68",
+      "productPrice": "655",
+      "productDescription": "Vjfgi",
+      "productAddedOn": "2020-08-24T11:22:32.112Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 19
+    },
+    {
+      "productCategory": 4,
+      "productName": "Hxfytuzgjxgix",
+      "productStock": " 68",
+      "productPrice": "655",
+      "productDescription": "Vjfgi",
+      "productAddedOn": "2020-08-24T11:24:42.172Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 21
+    },
+    {
+      "productCategory": 4,
+      "productName": "Hxfytuzgjxgix",
+      "productStock": " 68",
+      "productPrice": "655",
+      "productDescription": "Vjfgi",
+      "productAddedOn": "2020-08-24T11:24:49.210Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 22
+    },
+    {
+      "productCategory": 4,
+      "productName": "Gzgjzj",
+      "productStock": "787547",
+      "productPrice": "655",
+      "productDescription": "Gzjsjfz",
+      "productAddedOn": "2020-08-24T14:53:37.246Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 28
+    },
+    {
+      "productCategory": 4,
+      "productName": "Oooooooo",
+      "productStock": "787547",
+      "productPrice": "655",
+      "productDescription": "Gzjsjfz",
+      "productAddedOn": "2020-08-24T14:54:23.731Z",
+      "productUpdatedOn": null,
+      "productUserId": "1",
+      "id": 29
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "categoryName": "Charger"
+    },
+    {
+      "id": 2,
+      "categoryName": "Mobile"
+    },
+    {
+      "id": 3,
+      "categoryName": "Earphones"
+    },
+    {
+      "id": 4,
+      "categoryName": "Mobile cases"
+    },
+    {
+      "categoryName": "Other",
+      "id": 5
+    },
+    {
+      "categoryName": "Something",
+      "id": 6
+    }
+  ]
+}

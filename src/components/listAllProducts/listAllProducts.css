@@ -1,0 +1,105 @@
+.view-button {
+  background-color: #7dce7dab;
+  margin: unset !important;
+}
+.delete-button {
+  background-color: #ff7b7b99;
+  margin: unset !important;
+}
+
+/* CSS for normal table */
+.product-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.product-table-th,
+.product-table-td {
+  text-align: left;
+  padding: 8px;
+}
+
+.product-table-tr:nth-child(even) {
+  background-color: #f2f2f245;
+}
+
+.product-table-tr:nth-child(odd) {
+  background-color: #736e6e45;
+}
+
+.table-container {
+  overflow: auto;
+  max-width: -webkit-fill-available;
+  max-height: 600px;
+}
+
+/* CSS for ReactPaginate table */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  text-align: left;
+  padding: 8px;
+}
+
+.table > thead > tr > th:nth-last-child(2) {
+  text-align: right;
+}
+
+.table-header {
+  background-color: #ff161645;
+}
+
+.table > tbody > tr:nth-child(even) {
+  background-color: #f2f2f245;
+}
+
+.table > tbody > tbody > tr:nth-child(odd) {
+  background-color: #736e6e45;
+}
+
+.pagination-status__item {
+  display: inline;
+}
+.pagination-status {
+  text-align: center;
+}
+/* ReactPaginate table CSS over */
+.search-bar {
+  height: 25px;
+  padding: 2px;
+}
+.sort-by {
+  float: right;
+  height: 25px;
+}
+
+.sort-button {
+  background-color: #e8216bfc;
+  padding: 0 3px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.hr-align {
+  width: 97%;
+  margin: auto;
+}
+
+@media screen and (max-width: 550px) {
+  .search-bar {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .sort-by {
+    float: unset;
+  }
+}

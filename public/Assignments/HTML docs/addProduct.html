@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Add Product</title>
+    <link rel="stylesheet" href="./CSS/addProduct.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="icons/menuIcon.png"
+        alt="Menu Icon"
+        height="30px"
+        width="auto"
+        id="menuIcon"
+      />
+      <img
+        src="images/logo.png"
+        alt="Inventory Management Logo"
+        height="50px"
+        width="auto"
+        id="logo "
+      />
+      <img
+        src="icons/userAccountIcon.png"
+        alt="User Account Picture"
+        height="25px"
+        width="auto"
+        id="userPic"
+      />
+      <span id="username">Username!!!</span>
+    </header>
+    <section>
+      <h2>Add Product to Inventory</h2>
+      <table>
+        <tr>
+          <td>Product Name:</td>
+          <td><input type="text" required /></td>
+        </tr>
+        <tr>
+          <td>Quantity:</td>
+          <td><input type="number" required /></td>
+        </tr>
+        <tr>
+          <td>Category:</td>
+          <td>
+            <select>
+              <option value="category 1">Category 1</option>
+              <option value="category 2">Category 2</option>
+              <option value="category 3">Category 3</option>
+              <option value="category 4">Category 4</option>
+              <option value="category 5">Category 5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Price (INR):</td>
+          <td><input type="number" /></td>
+        </tr>
+        <tr>
+          <td>Image</td>
+          <td>
+            <input
+              type="file"
+              accept="image/x-png,image/gif,image/jpeg,image/jpg"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td><textarea rows="4" cols="23"></textarea></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>Submit</button></td>
+        </tr>
+      </table>
+    </section>
+    <footer>
+      <div>
+        &copy; All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

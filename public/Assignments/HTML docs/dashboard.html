@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="./CSS/dashboard.css" />
+    <script type="text/javascript">
+      window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          theme: "dark1", // "light2", "dark1", "dark2"
+          animationEnabled: true, // change to true
+          title: {
+            text: "Basic Column Chart",
+          },
+          data: [
+            {
+              // Change type to "bar", "area", "spline", "pie",etc.
+              type: "spline",
+              dataPoints: [
+                { label: "apple", y: 10 },
+                { label: "orange", y: 15 },
+                { label: "banana", y: 25 },
+                { label: "mango", y: 30 },
+                { label: "grape", y: 28 },
+              ],
+            },
+          ],
+        });
+        chart.render();
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <img
+        src="icons/menuIcon.png"
+        alt="Menu Icon"
+        height="30px"
+        width="auto"
+        id="menuIcon"
+      />
+      <img
+        src="images/logo.png"
+        alt="Inventory Management Logo"
+        height="50px"
+        width="auto"
+        id="logo "
+      />
+      <img
+        src="icons/userAccountIcon.png"
+        alt="User Account Picture"
+        height="25px"
+        width="auto"
+        id="userPic"
+      />
+      <span id="username">Username!!!</span>
+    </header>
+    <section>
+      <h2>Dashboard</h2>
+      <input type="search" id="searchBar" placeholder="Search in Inventory Here!!"/>
+      <div class="container">
+        <div id="chartContainer"></div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        &copy; All rights reserved.
+      </div>
+    </footer>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </body>
+</html>

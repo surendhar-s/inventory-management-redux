@@ -1,0 +1,50 @@
+.product-detail-container {
+  width: 80%;
+  line-height: 50px;
+  margin: auto;
+}
+
+.editable {
+  width: 330px;
+  height: 50px;
+  margin-top: 2%;
+  padding: 15px;
+  font-size: 16px;
+  font-family: "Abel", sans-serif;
+  color: #5e6472;
+  outline: none;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  transition: 0.2s linear;
+  margin: 5px 0px;
+  /* display: block; */
+  /* display: unset !important; */
+}
+
+.flex-area {
+  display: flex;
+}
+
+.data-item {
+  width: 100%;
+  flex: 0 33.3333%;
+}
+
+.operational-button {
+  /* background-color: #4caf50; Green */
+  border: none;
+  color: "#13111";
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.operational-button:hover {
+  background-color: #555555;
+  color: white;
+}

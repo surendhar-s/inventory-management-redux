@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./CSS/to-do.css" />
+  </head>
+  <body onload="loadNotesFromLocalStorage()">
+    <header>
+      <img src="/images/logo.png" alt="todo_logo" width="100" />
+    </header>
+    <section>
+      <h2>To-Do List</h2>
+      <div>
+        <span class="title">Add note here</span>
+        <input
+          type="text"
+          style="width: 270px;"
+          placeholder="Remind this!"
+          id="new_note_data"
+        />
+        <button onclick="addNewNote()" class="addNoteButton">Add Note</button>
+        <div class="note_container">
+          <div class="new_note_container">
+            <span class="subTitle">Yet To DO!</span>
+            <ol id="new_note_list"></ol>
+          </div>
+          <div class="completed_note_container">
+            <span class="subTitle">Woohoo, Completed!</span>
+            <ol id="completed_note_list"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        &copy; All rights reserved.
+      </div>
+    </footer>
+    <script>
+      function createListNode(listNode) {}
+      function loadNotesFromLocalStorage() {
+        if (localStorage.getItem("iValue") === null) {
+          localStorage.setItem("iValue", 1);
+        }
+        var data = { ...localStorage };
+        var newNoteString = "";
+        var completedNoteString = "";
+        for (var i in data) {
+          if (i !== "iValue") {
+            if (localStorage[i].endsWith("done")) {
+              completedNoteString = completedNoteString + localStorage[i].split("done")[0];
+            } else {
+              newNoteString = newNoteString + localStorage[i];
+            }
+          }
+        }
+        document.getElementById("new_note_list").innerHTML = newNoteString;
+        document.getElementById("completed_note_list").innerHTML = completedNoteString;
+      }
+      function moveNote(e) {
+        document.getElementById(e.target.parentNode.id).remove();
+      }
+      function deleteCompletedNote(e) {
+        localStorage.removeItem(e.target.parentNode.id);
+        document.getElementById(e.target.parentNode.id).remove();
+      }
+      function moveNoteToCompleted(e) {
+        var newCompletedNote = e.target.parentNode.innerText;
+        var newCompletedNoteId = e.target.parentNode.id;
+        newCompletedNote = newCompletedNote.split("Completed")[0];
+        var newListnode = document.createElement("li");
+        var newTextNode = document.createTextNode(newCompletedNote);
+        newListnode.setAttribute("id", newCompletedNoteId);
+        newListnode.appendChild(newTextNode);
+        var newButtonNode = document.createElement("button");
+        newButtonNode.setAttribute("onclick", "deleteCompletedNote(event)");
+        newTextNode = document.createTextNode("Delete");
+        newButtonNode.setAttribute("class", "deleteButton");
+        newButtonNode.appendChild(newTextNode);
+        newListnode.appendChild(newButtonNode);
+        moveNote(e);
+        document.getElementById("completed_note_list").appendChild(newListnode);
+        localStorage.setItem(
+          e.target.parentNode.id,
+         newListnode.outerHTML + " done"
+        );
+      }
+      function addNewNote() {
+        var newNoteData = document.getElementById("new_note_data").value;
+        if (newNoteData === "") {
+          console.log("No Data");
+        } else {
+          var newListnode = document.createElement("li");
+          var newTextNode = document.createTextNode(newNoteData);
+          var note_id = localStorage.getItem("iValue");
+          var temp_note_id = "new_note_id_" + note_id;
+          note_id++;
+          localStorage.setItem("iValue", note_id);
+          newListnode.setAttribute("id", temp_note_id);
+          newListnode.appendChild(newTextNode);
+          var newButtonNode = document.createElement("button");
+          newButtonNode.setAttribute("onclick", "moveNoteToCompleted(event)");
+          newButtonNode.setAttribute("class", "completedButton");
+          newTextNode = document.createTextNode("Completed");
+          newButtonNode.appendChild(newTextNode);
+          newListnode.appendChild(newButtonNode);
+          localStorage.setItem(temp_note_id, newListnode.outerHTML);
+          document.getElementById("new_note_list").appendChild(newListnode);
+          document.getElementById("new_note_data").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
