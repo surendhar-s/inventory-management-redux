@@ -35,7 +35,7 @@ class AddOrEditProduct extends Component {
         color: ' '
       },
     }
-    this.subCategory = ["Shirts", "Polo's", "Tees", "Tracks", "Pants", "Jeans", "Sports wear"]
+    this.subCategory = ["Shirts", "Polo's", "Tees", "Tracks", "Pants", "Jeans", "Sports wear", "Kids Wear"]
   }
   subCategory = []
   setErrorFiled = (fieldName, filedValue) => {

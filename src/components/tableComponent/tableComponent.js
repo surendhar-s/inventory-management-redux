@@ -33,7 +33,12 @@ import './tableComponent.css';
 // let rows = []
 
 function descendingComparator(a, b, orderBy) {
-  if (orderBy === "addedOn" || orderBy === "editedOn") {
+  if (orderBy === "addedOn" || orderBy === "updatedOn") {
+    if (a[orderBy] === null) {
+      return 1
+    } else if (b[orderBy] === null) {
+      return -1
+    }
     let field1 = moment(a[orderBy])
     let field2 = moment(b[orderBy])
     if (field1.diff(field2) < field2.diff(field1)) {
@@ -220,7 +225,7 @@ const EnhancedTableToolbar = (props) => {
     },
   };
   let columns = props.columns === undefined ? [] : props.columns.slice(1, props.columns.length - 1)
-  const [selectedColumns, setSelectedColumns] = React.useState(["Name", "Category", "Manufracturer", "Color", "In-Stock", "Price per Unit", "Inventory Value", "Added On", "Last Edited", "Action"])
+  const [selectedColumns, setSelectedColumns] = React.useState(["Name", "Category", "Manufracturer", "Color", "In-Stock", "Price per Unit", "Inventory Value", "Added On", "Last Updated", "Action"])
   const handleChange = (event) => {
     setSelectedColumns(event.target.value);
     props.showOrHideColumns(event.target.value)
@@ -501,7 +506,7 @@ export default function EnhancedTable(props) {
                       <TableCell align="right" className={columns.indexOf("Price per Unit") < 0 ? "hide-column" : ""}>{row.price}</TableCell>
                       <TableCell align="right" className={columns.indexOf("Inventory Value") < 0 ? "hide-column" : ""}>{row.inventory}</TableCell>
                       <TableCell align="right" className={columns.indexOf("Added On") < 0 ? "hide-column" : ""}>{getTimeFromString(row.addedOn)}</TableCell>
-                      <TableCell align="right" className={columns.indexOf("Last Edited") < 0 ? "hide-column" : ""}>{row.updatedOn !== null ? getTimeFromString(row.updatedOn) : "NA"}</TableCell>
+                      <TableCell align="right" className={columns.indexOf("Last Updated") < 0 ? "hide-column" : ""}>{row.updatedOn !== null ? getTimeFromString(row.updatedOn) : "NA"}</TableCell>
                       <TableCell align="center">{row.viewAction}</TableCell>
                     </TableRow>
                   );

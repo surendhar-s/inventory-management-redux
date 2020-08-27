@@ -175,7 +175,7 @@ class ListAllProducts extends Component {
       { id: 'price', numeric: true, disablePadding: false, label: 'Price per Unit' },
       { id: 'inventory', numeric: true, disablePadding: false, label: 'Inventory Value' },
       { id: 'addedOn', numeric: false, disablePadding: true, label: 'Added On' },
-      { id: 'editedOn', numeric: false, disablePadding: true, label: 'Last Edited' },
+      { id: 'updatedOn', numeric: false, disablePadding: true, label: 'Last Updated' },
       { id: 'Action', numeric: false, disablePadding: true, label: 'Action' },
     ];
     let tableData = []
@@ -187,7 +187,7 @@ class ListAllProducts extends Component {
       let color = data.productColor
       let stock = parseInt(data.productStock)
       let description = data.productDescription
-      let addedOn = data.productAddedon
+      let addedOn = data.productAddedOn
       let updatedOn = data.productUpdatedOn
       let price = new Intl.NumberFormat('en-IN', {
         style: 'currency',
