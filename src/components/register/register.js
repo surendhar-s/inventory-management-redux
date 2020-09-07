@@ -60,7 +60,7 @@ class Register extends Component {
         }
     }
     checkUserEmail = async () => {
-        const data = await Axios.get("http://localhost:3001/userDb?email=" + this.state.email)
+        const data = await Axios.get("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/userDb?email=" + this.state.email)
         if (data.data.length === 0) {
             this.setState({
                 isNewEmail: true
@@ -85,7 +85,7 @@ class Register extends Component {
                 // password: this.state.password,
                 email: this.state.email
             }
-            await Axios.post("http://localhost:3001/userDb", details)
+            await Axios.post("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/userDb", details)
             // console.log(data);
             this.setState({
                 isDataLoading: false

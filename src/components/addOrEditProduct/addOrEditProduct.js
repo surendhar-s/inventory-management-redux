@@ -108,7 +108,7 @@ class AddOrEditProduct extends Component {
     })
   }
   fetchCategory = async () => {
-    let categoryList = await Axios.get("http://localhost:3001/category")
+    let categoryList = await Axios.get("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/category")
     this.setState({
       categoryList: categoryList.data,
       category: categoryList.data[0].id
@@ -118,7 +118,7 @@ class AddOrEditProduct extends Component {
     this.setState({
       isDataLoading: true
     })
-    let data = await Axios.post("http://localhost:3001/products", {
+    let data = await Axios.post("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/products", {
       productCategory: this.state.category,
       productName: this.state.name,
       productStock: this.state.quantity,
@@ -189,7 +189,7 @@ class AddOrEditProduct extends Component {
         return 0
       })
       if (checkFlag) {
-        await Axios.post("http://localhost:3001/category", {
+        await Axios.post("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/category", {
           categoryName: newCategory
         })
         errors.newCategory = ''

@@ -27,7 +27,7 @@ class Login extends Component {
   }
 
   login = async () => {
-    const data = await Axios.get("http://localhost:3001/userDb?email=" + this.state.email)
+    const data = await Axios.get("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/userDb?email=" + this.state.email)
     if (data.data.length !== 0) {
       if (await bcrypt.compare(this.state.password, data.data[0].password)) {
         localStorage.setItem("userId", data.data[0].id)
