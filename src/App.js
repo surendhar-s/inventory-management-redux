@@ -16,9 +16,16 @@ class App extends Component {
                     exact
                     path={path}
                     key={Math.random()}
-                    render={props => (
-                      <C {...props} />
-                    )}
+                    render={props => {
+                      let status = isLoggedIn()
+                      if (access === "public") {
+                        if (status) {
+                          
+                        }
+                      } else {
+
+                      }
+                    }}
                   />
                 )
               })
