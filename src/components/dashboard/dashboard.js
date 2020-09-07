@@ -26,11 +26,12 @@ class Dashboard extends Component {
         title: "Manufracturer"
       },
       axisY: {
-        title: "Product in stock"
+        title: "Product in stock (%)"
       },
       data: [{
         type: "bar",
-        indexLabel: "{label}: {y}%",
+        indexLabel: "{label}: {numOf}",
+        // indexLabel: "{label}: {y}%",
         dataPoints: []
       }]
     }
@@ -45,11 +46,12 @@ class Dashboard extends Component {
         title: "Category"
       },
       axisY: {
-        title: "Product in stock"
+        title: "Product in stock (%)"
       },
       data: [{
         type: "bar",
-        indexLabel: "{label}: {y}%",
+        indexLabel: "{label}: {numOf}",
+        // indexLabel: "{label}: {y}%",
         dataPoints: []
       }]
     }
@@ -77,7 +79,7 @@ class Dashboard extends Component {
     })
     this.chartOption.data[0].dataPoints = []
     for (let index = 0; index < categoryName.length; index++) {
-      this.chartOption.data[0].dataPoints.push({ label: categoryName[index], y: parseFloat(((productInStock[index] / totalProducts) * 100).toFixed(2)) })
+      this.chartOption.data[0].dataPoints.push({ label: categoryName[index], y: parseFloat(((productInStock[index] / totalProducts) * 100).toFixed(2)), numOf: productInStock[index] })
     }
   }
   getChatDataForCategoty = () => {
@@ -98,7 +100,7 @@ class Dashboard extends Component {
     })
     this.chartOption1.data[0].dataPoints = []
     for (let index = 0; index < categoryName.length; index++) {
-      this.chartOption1.data[0].dataPoints.push({ label: categoryName[index], y: parseFloat(((productInStock[index] / totalProducts) * 100).toFixed(2)) })
+      this.chartOption1.data[0].dataPoints.push({ label: categoryName[index], y: parseFloat(((productInStock[index] / totalProducts) * 100).toFixed(2)), numOf: productInStock[index] })
     }
   }
   render() {
@@ -109,8 +111,8 @@ class Dashboard extends Component {
         <h2 className="h2">Dashboard</h2>
         <hr className="hr-align" />
         <div>
-          <Button variant="outlined" color="secondary" className="dashboard-buttons" onClick={() => this.setChartType("manufracturer")}>Manufracturer</Button>
-          <Button variant="outlined" color="secondary" className="dashboard-buttons" onClick={() => this.setChartType("category")}>Category</Button>
+          <Button variant="contained" color="primary" className="dashboard-buttons" onClick={() => this.setChartType("manufracturer")}>Manufracturer</Button>
+          <Button variant="contained" color="primary" className="dashboard-buttons" onClick={() => this.setChartType("category")}>Category</Button>
         </div>
         {this.state.chartType === "manufracturer" ? <div>{this.chartOption.data[0].dataPoints.length !== 0 ? <div style={{ padding: "15px" }}><CanvasJsChart options={this.chartOption} /></div> : <h3 style={{ height: "100px", padding: "15px", textAlign: "center" }}>No product in inventory found, please add!!</h3>} </div> : null}
         {this.state.chartType === "category" ? <div>{this.chartOption1.data[0].dataPoints.length !== 0 ? <div style={{ padding: "15px" }}><CanvasJsChart options={this.chartOption1} /></div> : <h3 style={{ height: "100px", padding: "15px", textAlign: "center" }}>No product in inventory found, please add!!</h3>} </div> : null}

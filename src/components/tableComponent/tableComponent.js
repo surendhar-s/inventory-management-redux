@@ -321,8 +321,7 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 750,
-    // color: theme.palette.text.primary,
-    // backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.text.primary,
   },
   visuallyHidden: {
     border: 0,
@@ -423,7 +422,10 @@ export default function EnhancedTable(props) {
     else {
       let tempRow = []
       props.tableData.map(data => {
-        if (data.name.toUpperCase().includes(value.toUpperCase()) || data.description.toUpperCase().includes(value.toUpperCase())) {
+        if (data.name.toUpperCase().includes(value.toUpperCase()) ||
+          data.description.toUpperCase().includes(value.toUpperCase()) ||
+          data.category.toUpperCase().includes(value.toUpperCase()) ||
+          data.subCategory.toUpperCase().includes(value.toUpperCase())) {
           tempRow.push(data);
         }
         return 0

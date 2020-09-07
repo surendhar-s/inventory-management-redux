@@ -1,42 +1,26 @@
-import Login from "../components/login/login"
-import Register from "../components/register/register"
-// import Dashboard from "../components/dashboard/dashboard";
-import AddOrEditProduct from "../components/addOrEditProduct/addOrEditProduct";
-import ListAllProducts from "../components/listAllProducts/listAllProducts";
-import Home from "../components/home/home";
-import ProductDetailTile from "../components/productDetailTile/productDetailTile";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import PublicRoute from "./publicRouting";
+import Login from "../components/login/login";
+import Register from "../components/register/register";
+import PrivateRoute from "./privateRouting";
+import home from "../components/home/home";
+import productDetailTile from "../components/productDetailTile/productDetailTile";
 
-const routes = [
-    {
-        path: "/login",
-        component: Login,
-        access: "public"
-    },
-    {
-        path: "/register",
-        component: Register,
-        access: "public"
-    },
-    {
-        path: "/",
-        component: Home,
-        access: "private"
-    },
-    {
-        path: "/addoredit",
-        component: AddOrEditProduct,
-        access: "private"
-    },
-    {
-        path: "/listAll",
-        component: ListAllProducts,
-        access: "private"
-    },
-    {
-        path: "/productDetail",
-        component: ProductDetailTile,
-        access: "private"
+class Routes extends Component {
+
+    render() {
+        return (
+            <Router>
+                <Switch>
+                    <PublicRoute component={Login} path="/login" exact />
+                    <PublicRoute component={Register} path="/register" exact />
+                    <PrivateRoute component={home} path="/" exact />
+                    <PrivateRoute component={productDetailTile} path="/productDetail" />
+                </Switch>
+            </Router>
+        );
     }
-]
+}
 
-export default routes;
+export default Routes;

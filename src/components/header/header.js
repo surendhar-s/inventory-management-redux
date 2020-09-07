@@ -14,7 +14,7 @@ class Header extends Component {
             <h2 className="title">Inventory Management</h2>
           </div>
           <div>
-            <Link style={{ textDecoration: "none", color: "black" }} to={{ pathname: "/login" }}><Button data-testid="logout-function" variant="contained" color="primary" size="small" className="logout-button" onClick={this.handleLogout}>Logout</Button></Link>
+            <Link style={{ textDecoration: "none", color: "black" }} to={{ pathname: "/login" }}><Button data-testid="logout-function" variant="outlined" color="primary" size="small" className="logout-button" onClick={this.handleLogout}>Logout</Button></Link>
             {/* <Link style={{ textDecoration: "none", color: "black" }} to={{ pathname: "/login" }}><button className="button logout-button" onClick={this.handleLogout}>Logout</button></Link> */}
           </div>
         </div>

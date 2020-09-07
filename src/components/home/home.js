@@ -23,24 +23,19 @@ class Home extends Component {
     }
   }
   componentDidMount = async () => {
-    if (localStorage.getItem("userId") === null) {
-      this.props.history.replace("/login")
-    }
-    else {
-      let produtData = await Axios.get("http://localhost:3001/products?productUserId=" + localStorage.getItem("userId"))
-      let categoryList = await Axios.get("http://localhost:3001/category")
-      let list = []
-      if (produtData.data.length !== 0) {
-        let categoryId = await categoryList.data.map(a => parseInt(a.id))
-        let categoryName = await categoryList.data.map(a => a.categoryName)
-        produtData.data.map(singleProduct => {
-          let index = categoryId.findIndex(e => e === parseInt(singleProduct.productCategory))
-          let catName = categoryName[index];
-          singleProduct["productCategoryName"] = catName
-          list.push(singleProduct)
-          return 0
-        })
-      }
+    let produtData = await Axios.get("http://localhost:3001/products?productUserId=" + localStorage.getItem("userId"))
+    let categoryList = await Axios.get("http://localhost:3001/category")
+    let list = []
+    if (produtData.data.length !== 0) {
+      let categoryId = await categoryList.data.map(a => parseInt(a.id))
+      let categoryName = await categoryList.data.map(a => a.categoryName)
+      produtData.data.map(singleProduct => {
+        let index = categoryId.findIndex(e => e === parseInt(singleProduct.productCategory))
+        let catName = categoryName[index];
+        singleProduct["productCategoryName"] = catName
+        list.push(singleProduct)
+        return 0
+      })
       this.props.setProductList({ list: list })
     }
   }
@@ -69,9 +64,9 @@ class Home extends Component {
           </div> */}
           {/* <hr /> */}
           <div className="navbar-container">
-            <Button color="primary" className={this.state.isDashboardSelected ? "isSelected": ""} onClick={() => this.setState({ isDashboardSelected: true, isListAllSelected: false, isAddProductSelected: false, forceUpadeEnabledForListAll: false })}>Dashboard</Button>
-            <Button color="primary" className={this.state.isListAllSelected ? "isSelected": ""}  onClick={() => this.setState({ isDashboardSelected: false, isListAllSelected: true, isAddProductSelected: false, forceUpadeEnabledForListAll: false })}>ListAll</Button>
-            <Button color="primary" className={this.state.isAddProductSelected ? "isSelected": ""}  onClick={() => this.setState({ isDashboardSelected: false, isListAllSelected: false, isAddProductSelected: true, forceUpadeEnabledForListAll: false })}>Add Product</Button>
+            <Button color="primary" className={this.state.isDashboardSelected ? "isSelected" : ""} onClick={() => this.setState({ isDashboardSelected: true, isListAllSelected: false, isAddProductSelected: false, forceUpadeEnabledForListAll: false })}>Dashboard</Button>
+            <Button color="primary" className={this.state.isListAllSelected ? "isSelected" : ""} onClick={() => this.setState({ isDashboardSelected: false, isListAllSelected: true, isAddProductSelected: false, forceUpadeEnabledForListAll: false })}>ListAll</Button>
+            <Button color="primary" className={this.state.isAddProductSelected ? "isSelected" : ""} onClick={() => this.setState({ isDashboardSelected: false, isListAllSelected: false, isAddProductSelected: true, forceUpadeEnabledForListAll: false })}>Add Product</Button>
           </div>
           {this.state.isDashboardSelected ? <Dashboard /> : null}
           {this.state.isListAllSelected ? <ListAll forceUpadeEnabled={this.state.forceUpadeEnabledForListAll} /> : null}
