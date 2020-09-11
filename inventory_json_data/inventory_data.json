@@ -184,16 +184,16 @@
       "id": 15
     },
     {
-      "productCategory": 6,
-      "productName": "Helli",
-      "productStock": "23",
-      "productPrice": "23",
-      "productDescription": "Hello world",
-      "productAddedOn": "2020-08-29T08:54:14.412Z",
-      "productUpdatedOn": null,
+      "productCategory": "5",
+      "productName": "ASDFADDSAAD",
+      "productStock": "2",
+      "productPrice": "2132321",
+      "productDescription": "JKASHdkfhad;jh",
+      "productAddedOn": "2020-09-11T09:08:47.259Z",
+      "productUpdatedOn": "2020-09-11T09:09:57.059Z",
+      "productSubCategory": "Sports wear",
+      "productColor": "Black",
       "productUserId": "1",
-      "productSubCategory": "Jeans",
-      "productColor": "Hzhss",
       "id": 16
     }
   ],
