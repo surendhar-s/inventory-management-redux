@@ -108,7 +108,7 @@ class ProductDetailTile extends Component {
     this.setState({ productPrice: e.target.value })
   }
   editData = async () => {
-    let data = await Axios.put("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/products/" + this.state.id, {
+    let data = await Axios.put("http://localhost:3001/products/" + this.state.id, {
       productCategory: this.state.productCategory,
       productName: this.state.productName,
       productStock: this.state.productStock,

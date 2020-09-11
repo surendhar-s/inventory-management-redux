@@ -7,7 +7,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         <Route {...rest} component={props => (
             isLoggedIn() ?
                 <div>
-                    <Component {...props} />
+                    {Component.WrappedComponent.name === "ProductDetailTile" ? <div>
+                        {props.location.state === undefined ? <Redirect to="/" /> : <Component {...props} />}
+                    </div> : <Component {...props} />}
                 </div>
                 :
                 <Redirect to="/login" />

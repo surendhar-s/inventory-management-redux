@@ -29,7 +29,7 @@ class ListAllProducts extends Component {
     this.setState({
       isDataLoading: true
     })
-    let category = await Axios.get("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/category")
+    let category = await Axios.get("http://localhost:3001/category")
     this.setState({
       categoryList: category.data
     })
@@ -44,7 +44,7 @@ class ListAllProducts extends Component {
     this.setState({
       isDataLoading: true
     })
-    let data = await Axios.delete("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/products/" + id)
+    let data = await Axios.delete("http://localhost:3001/products/" + id)
     if (data.status === 200) {
       // if (true) {
       await this.props.removeProductInList({ productId: id })

@@ -1,7 +1,13 @@
 .product-detail-container {
+  /* width: 80%;
+  line-height: 50px;
+  margin: auto; */
   width: 80%;
   line-height: 50px;
-  margin: auto;
+  background: snow;
+  padding: 10px;
+  margin: 10px auto auto;
+  box-shadow: inset 0px 0px 9px 4px #da2e2e;
 }
 
 .editable {

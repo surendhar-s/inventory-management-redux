@@ -23,8 +23,8 @@ class Home extends Component {
     }
   }
   componentDidMount = async () => {
-    let produtData = await Axios.get("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/products?productUserId=" + localStorage.getItem("userId"))
-    let categoryList = await Axios.get("https://api.jsonbin.io/b/5f564b42993a2e110d4044b8/category")
+    let produtData = await Axios.get("http://localhost:3001/products?productUserId=" + localStorage.getItem("userId"))
+    let categoryList = await Axios.get("http://localhost:3001/category")
     let list = []
     if (produtData.data.length !== 0) {
       let categoryId = await categoryList.data.map(a => parseInt(a.id))
